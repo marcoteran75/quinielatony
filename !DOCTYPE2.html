@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiniela Tony - 7 Juegos </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .liga {
+            text-align: left;
+            max-width: 200px;
+        }
+        .liga a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .liga a:hover {
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+        }
+        input[type="checkbox"] {
+            margin: 0 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #costo {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .banner {
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #ff4444;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiniela tony - 7 Juegos </h1>
+    <label for="nombre">Nombre del participante:</label>
+    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+    <div class="banner">Cierre: Viernes 5 diciembre 2025 a las 20:00 horas</div>
+    <div class="container">
+        
+        <div>
+            <table>
+                <tr>
+                    <th>Juego</th>
+                    <th>Equipo Local</th>
+                    <th>Local</th>
+                    <th>Empate</th>
+                    <th>Visitante</th>
+                    <th>Equipo Visitante</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Newcastle</td>
+                    <td><input type="checkbox" name="juego1" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego1" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego1" value="V" onchange="calcularCosto()"></td>
+                    <td>Burnley</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td> cremonesse</td>
+                    <td><input type="checkbox" name="juego2" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego2" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego2" value="V" onchange="calcularCosto()"></td>
+                    <td>lecce</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td> oviedo </td>
+                    <td><input type="checkbox" name="juego3" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego3" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego3" value="V" onchange="calcularCosto()"></td>
+                    <td>mallorca</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>atletico mineiro</td>
+                    <td><input type="checkbox" name="juego4" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego4" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego4" value="V" onchange="calcularCosto()"></td>
+                    <td>vasco da gama</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>stuttgart</td>
+                    <td><input type="checkbox" name="juego5" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego5" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego5" value="V" onchange="calcularCosto()"></td>
+                    <td>bayer munich</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>le havre</td>
+                    <td><input type="checkbox" name="juego6" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego6" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego6" value="V" onchange="calcularCosto()"></td>
+                    <td>paris fc</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>utrecht</td>
+                    <td><input type="checkbox" name="juego7" value="L" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego7" value="E" onchange="calcularCosto()"></td>
+                    <td><input type="checkbox" name="juego7" value="V" onchange="calcularCosto()"></td>
+                    <td>Twente</td>
+                </tr>
+            </table>
+            <div id="costo">Costo total: $0</div>
+            <button onclick="enviarQuiniela()">Enviar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularCosto() {
+            let totalCombinaciones = 1;
+            for (let i = 1; i <= 7; i++) {
+                const selecciones = document.querySelectorAll(`input[name="juego${i}"]:checked`);
+                totalCombinaciones *= selecciones.length || 1; // Si no hay selecciones, cuenta como 1
+            }
+            const costoBase = 10; // Costo por combinación
+            const costoTotal = totalCombinaciones * costoBase;
+            document.getElementById('costo').textContent = `Costo total: $${costoTotal}`;
+        }
+
+        function enviarQuiniela() {
+            const nombre = document.getElementById('nombre').value.trim();
+            if (!nombre) {
+                alert('Por favor, ingresa tu nombre.');
+                return;
+            }
+
+            const juegos = [];
+            let totalCombinaciones = 1;
+            for (let i = 1; i <= 7; i++) {
+                const selecciones = document.querySelectorAll(`input[name="juego${i}"]:checked`);
+                if (selecciones.length === 0) {
+                    alert(`Por favor, selecciona al menos una opción para el juego ${i}.`);
+                    return;
+                }
+                const opciones = Array.from(selecciones).map(cb => cb.value).sort().join('');
+                juegos.push(opciones);
+                totalCombinaciones *= selecciones.length;
+            }
+
+            const costoTotal = totalCombinaciones * 10;
+            const mensaje = `Quiniela de ${nombre}: ${juegos.join(', ')} - Costo: $${costoTotal}`;
+            const numeroWhatsApp = '528332089010'; // Reemplaza con el número de destino (con código de país, ej. +521234567890)
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
