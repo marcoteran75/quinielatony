@@ -81,15 +81,44 @@
             border-radius: 5px;
             display: inline-block;
         }
+        .facebook-band {
+            background-color: #3b5998;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .facebook-band img {
+            width: 30px;
+            height: 30px;
+        }
+        .payment-band {
+            background-color: #ffeb3b;
+            color: #333;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h1>Quiniela tony # 1- 7 Juegos </h1>
     <label for="nombre">Nombre del participante:</label>
     <input type="text" id="nombre" placeholder="Ingresa tu nombre">
-    <div class="banner">Cierre: Viernes 5 diciembre 2025 a las 20:00 horas</div>
+    
+    <div class="facebook-band">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        <span>Quinielas Tony</span>
+    </div>
+    <div class="banner">Cierre: Viernes 5 diciembre a las 20 horas</div>
+    <div class="payment-band">Paga tu quiniela aquí: 5204 1657 5532 0292</div>
+
     <div class="container">
-        
         <div>
             <table>
                 <tr>
@@ -110,7 +139,7 @@
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td> cremonesse</td>
+                    <td>cremonesse</td>
                     <td><input type="checkbox" name="juego2" value="L" onchange="calcularCosto()"></td>
                     <td><input type="checkbox" name="juego2" value="E" onchange="calcularCosto()"></td>
                     <td><input type="checkbox" name="juego2" value="V" onchange="calcularCosto()"></td>
@@ -118,7 +147,7 @@
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td> oviedo </td>
+                    <td>oviedo</td>
                     <td><input type="checkbox" name="juego3" value="L" onchange="calcularCosto()"></td>
                     <td><input type="checkbox" name="juego3" value="E" onchange="calcularCosto()"></td>
                     <td><input type="checkbox" name="juego3" value="V" onchange="calcularCosto()"></td>
@@ -158,7 +187,6 @@
                 </tr>
             </table>
             <div id="costo">Costo total: $0</div>
-            <div>para pagar tu número aquí 👉👉 5204 1657 5532 0292👈👈</div>  
             <button onclick="enviarQuiniela()">Enviar por WhatsApp</button>
         </div>
     </div>
@@ -168,9 +196,9 @@
             let totalCombinaciones = 1;
             for (let i = 1; i <= 7; i++) {
                 const selecciones = document.querySelectorAll(`input[name="juego${i}"]:checked`);
-                totalCombinaciones *= selecciones.length || 1; // Si no hay selecciones, cuenta como 1
+                totalCombinaciones *= selecciones.length || 1;
             }
-            const costoBase = 10; // Costo por combinación
+            const costoBase = 10;
             const costoTotal = totalCombinaciones * costoBase;
             document.getElementById('costo').textContent = `Costo total: $${costoTotal}`;
         }
@@ -197,11 +225,12 @@
 
             const costoTotal = totalCombinaciones * 10;
             const mensaje = `Quiniela de ${nombre}: ${juegos.join(', ')} - Costo: $${costoTotal}`;
-            const numeroWhatsApp = '528332089010'; // Reemplaza con el número de destino (con código de país, ej. +521234567890)
+            const numeroWhatsApp = '528332089010';
             const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
         }
     </script>
 </body>
 </html>
+
 
