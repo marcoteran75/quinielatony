@@ -37,14 +37,14 @@
         input[type="checkbox"] { transform: scale(1.3); margin: 0 8px; }
         button {
             padding: 12px 25px;
-            background-color: #1877f2;  /* Azul de Facebook */
+            background-color: #1877f2;
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
-            margin-top: 15px;
+            margin: 10px 8px;
         }
         button:hover { background-color: #166fe5; }
         #costo {
@@ -94,6 +94,12 @@
             text-align: left;
             font-family: monospace;
             display: none;
+        }
+        .btn-limpiar {
+            background-color: #dc3545 !important;
+        }
+        .btn-limpiar:hover {
+            background-color: #c82333 !important;
         }
     </style>
 </head>
@@ -180,10 +186,13 @@
 
     <div id="costo">Costo total: $0</div>
     
-    <!-- Preview del mensaje (aparece al calcular costo) -->
+    <!-- Preview del mensaje -->
     <div id="mensajePreview"></div>
     
-    <button onclick="enviarQuiniela()">Abrir Messenger</button>
+    <div>
+        <button onclick="enviarQuiniela()">Abrir Messenger</button>
+        <button class="btn-limpiar" onclick="limpiarTodo()">Limpiar Selección</button>
+    </div>
 
     <script>
         function calcularCosto() {
@@ -192,10 +201,9 @@
                 const checked = document.querySelectorAll(`input[name="juego${i}"]:checked`).length;
                 combinaciones *= (checked || 1);
             }
-            const costoTotal = combinaciones * 8;  // $8 por combinación
+            const costoTotal = combinaciones * 8;
             document.getElementById('costo').textContent = `Costo total: $${costoTotal}`;
             
-            // Mostrar preview del mensaje
             const nombre = document.getElementById('nombre').value.trim();
             if (nombre && combinaciones > 0) {
                 const juegos = [];
@@ -243,25 +251,35 @@
             const costoTotal = combinaciones * 8;
             const mensaje = `Quiniela de *${nombre}*\nJuegos: ${juegos.join(' - ')}\nTotal combinaciones: ${combinaciones}\n*Costo: $${costoTotal}*`;
 
-            // Copia el mensaje al portapapeles para que sea fácil pegarlo
-            navigator.clipboard.writeText(mensaje).catch(() => {
-                // Si falla, no pasa nada
-            });
+            navigator.clipboard.writeText(mensaje).catch(() => {});
 
-            // ABRIR DIRECTO EN MESSENGER (sin prefill, como WhatsApp pero para FB)
-            const facebookUsername = "quinielastony";  // ← CAMBIA POR TU USERNAME REAL DE FB (ej: "QuinielasTonyMX")
-            // Si usas ID numérico: const facebookUsername = "1234567890";
-
+            const facebookUsername = "quinielastony";
             const urlMessenger = `https://m.me/${facebookUsername}`;
             window.open(urlMessenger, '_blank');
 
-            // Mensaje simple para guiar (sin molestar mucho)
             setTimeout(() => {
                 alert(`¡Abierto en Messenger!\nEl mensaje está copiado en tu portapapeles.\nPégalo en la conversación y envía. ¡Gracias!`);
             }, 500);
         }
 
-        // Calcular costo inicial y al cambiar nombre
+        // NUEVA FUNCIÓN: Limpiar todo
+        function limpiarTodo() {
+            if (!confirm("¿Seguro que quieres borrar toda la selección y el nombre?")) return;
+
+            // Borrar nombre
+            document.getElementById('nombre').value = '';
+
+            // Desmarcar todas las casillas
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+
+            // Resetear costo y preview
+            document.getElementById('costo').textContent = 'Costo total: $0';
+            document.getElementById('mensajePreview').style.display = 'none';
+        }
+
+        // Eventos
         document.getElementById('nombre').addEventListener('input', calcularCosto);
         window.onload = calcularCosto;
     </script>
