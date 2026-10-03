@@ -28,6 +28,57 @@
             text-shadow: 3px 3px 8px #000; 
             margin-bottom: 20px;
         }
+        .instrucciones {
+            background: rgba(255,255,255,0.95);
+            color: #111;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 850px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .instrucciones h2 {
+            margin-top: 0;
+            color: #1877f2;
+            text-align: center;
+            font-size: 22px;
+        }
+        .instrucciones ol {
+            margin: 10px 0 15px 20px;
+            padding: 0;
+        }
+        .instrucciones li {
+            margin-bottom: 8px;
+        }
+        .pago-info {
+            background: #ffeb3b;
+            color: #222;
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 850px;
+            font-size: 17px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+        .pago-info h3 {
+            margin: 0 0 12px 0;
+            text-align: center;
+            font-size: 20px;
+            color: #b71c1c;
+        }
+        .pago-info p {
+            margin: 8px 0;
+        }
+        .pago-info a {
+            color: #0066cc;
+            text-decoration: underline;
+            word-break: break-all;
+        }
         table {
             border-collapse: collapse;
             background-color: rgba(255, 255, 255, 0.92);
@@ -73,11 +124,11 @@
             transition: background 0.3s;
         }
         button:hover { background-color: #166fe5; }
-        .btn-whatsapp {
-            background-color: #25D366;
+        .btn-telegram {
+            background-color: #0088cc;
         }
-        .btn-whatsapp:hover {
-            background-color: #20b358;
+        .btn-telegram:hover {
+            background-color: #0077b3;
         }
         .btn-limpiar {
             background-color: #dc3545 !important;
@@ -107,16 +158,6 @@
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
-        .payment-band {
-            background-color: #ffeb3b;
-            color: #333;
-            padding: 15px;
-            margin: 30px 0;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
         #mensajePreview {
             background-color: rgba(255,255,255,0.95);
             border: 1px solid #ddd;
@@ -144,12 +185,48 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
         .facebook-band img { width: 48px; height: 48px; }
+        .premio-band {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Quiniela Tony - 10 Juegos</h1>
+
+        <!-- INSTRUCCIONES ARRIBA -->
+        <div class="instrucciones">
+            <h2>📋 Instrucciones de llenado</h2>
+            <ol>
+                <li><strong>Escribe tu nombre</strong> completo en el campo de abajo.</li>
+                <li><strong>Selecciona al menos una opción</strong> (Local / Empate / Visitante) en cada uno de los 10 juegos.</li>
+                <li>Puedes marcar <strong>varias opciones</strong> en un mismo juego. Cada combinación extra cuesta $8.</li>
+                <li>Revisa el <strong>costo total</strong> que se actualiza automáticamente.</li>
+                <li>Una vez terminado, envía tu quiniela por <strong>Telegram</strong> o Messenger.</li>
+            </ol>
+        </div>
+
+        <!-- DÓNDE Y CÓMO PAGAR + CORREO + TELEGRAM + PREMIO -->
+        <div class="pago-info">
+            <h3>💰 Dónde y cómo pagar</h3>
+            <p><strong>Tarjeta / CLABE:</strong> 5204 1657 5532 0292</p>
+            <p><strong>Cómo pagar:</strong> Realiza una transferencia SPEI o depósito a la tarjeta indicada. Guarda el comprobante.</p>
+            <p><strong>Correo electrónico para enviar comprobante y quiniela:</strong> <a href="mailto:quinielastony@gmail.com">quinielastony@gmail.com</a></p>
+<p><strong>Usuario de Telegram para enviar comprobante y quiniela:</strong><br>
+                @quinielastony</p>
+            <p><strong>Grupo de Telegram:</strong> <a href="https://t.me/quinielastony" target="_blank">https://t.me/quinielastony</a> (únete al grupo para ver resultados y avisos)</p>
+            <p style="margin-top:14px; font-size:18px; color:#b71c1c;">🏆 <strong>Monto del premio:</strong> $5,000 MXN (se reparte entre los acertantes)</p>
+        </div>
+
+        <div class="premio-band">Premio acumulado: $5,000 MXN</div>
 
         <label for="nombre"><strong>Nombre del participante:</strong></label><br>
         <input type="text" id="nombre" placeholder="Ingresa tu nombre aquí">
@@ -159,7 +236,7 @@
             <span>Quinielas Tony</span>
         </div>
 
-        <div class="banner">Cierre: Viernes 06 de febrero a las 23 horas</div>
+        <div class="banner">Cierre: Viernes 9 de enero a las 20 horas</div>
 
         <table>
             <tr>
@@ -172,95 +249,92 @@
             </tr>
             <tr>
                 <td>1</td>
-                <td>queretaro</td>
+                <td>Atlas</td>
                 <td><input type="checkbox" name="juego1" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego1" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego1" value="V" onchange="calcularCosto()"></td>
-                <td>leon</td>
+                <td>Puebla</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>toluca</td>
+                <td>Xolos</td>
                 <td><input type="checkbox" name="juego2" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego2" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego2" value="V" onchange="calcularCosto()"></td>
-                <td>cruz azul</td>
+                <td>América</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>atlas</td>
+                <td>Chivas</td>
                 <td><input type="checkbox" name="juego3" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego3" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego3" value="V" onchange="calcularCosto()"></td>
-                <td>pumas</td>
+                <td>Pachuca</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>pachuca</td>
+                <td>Pumas</td>
                 <td><input type="checkbox" name="juego4" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego4" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego4" value="V" onchange="calcularCosto()"></td>
-                <td>juarez</td>
+                <td>Querétaro</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>liverpool</td>
+                <td>Monterrey</td>
                 <td><input type="checkbox" name="juego5" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego5" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego5" value="V" onchange="calcularCosto()"></td>
-                <td>manchester city</td>
+                <td>Toluca</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>brighton</td>
+                <td>León</td>
                 <td><input type="checkbox" name="juego6" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego6" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego6" value="V" onchange="calcularCosto()"></td>
-                <td>crystal palace</td>
+                <td>Cruz Azul</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>real sociedad</td>
+                <td>Santos</td>
                 <td><input type="checkbox" name="juego7" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego7" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego7" value="V" onchange="calcularCosto()"></td>
-                <td>elche</td>
+                <td>Necaxa</td>
             </tr>
             <tr>
                 <td>8</td>
-                <td>genoa  </td>
+                <td>Mazatlán</td>
                 <td><input type="checkbox" name="juego8" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego8" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego8" value="V" onchange="calcularCosto()"></td>
-                <td>napoli</td>
+                <td>Juárez</td>
             </tr>
             <tr>
                 <td>9</td>
-                <td>niza</td>
+                <td>San Luis</td>
                 <td><input type="checkbox" name="juego9" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego9" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego9" value="V" onchange="calcularCosto()"></td>
-                <td>monaco</td>
+                <td>Tigres</td>
             </tr>
             <tr>
                 <td>10</td>
-                <td>tampico madero </td>
+                <td>Villarreal</td>
                 <td><input type="checkbox" name="juego10" value="L" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego10" value="E" onchange="calcularCosto()"></td>
                 <td><input type="checkbox" name="juego10" value="V" onchange="calcularCosto()"></td>
-                <td>irapuato</td>
+                <td>Alavés</td>
             </tr>
         </table>
 
-        <div class="payment-band">Paga tu quiniela a este número: <strong>5204 1657 5532 0292</strong></div>
-
         <div id="costo">Costo total: $0</div>
-
         <div id="mensajePreview"></div>
 
         <div>
             <button onclick="enviarQuiniela()">Abrir Messenger</button>
-            <button class="btn-whatsapp" onclick="enviarPorWhatsApp()">Enviar por WhatsApp</button>
+            <button class="btn-telegram" onclick="enviarPorTelegram()">Enviar por Telegram</button>
             <button class="btn-limpiar" onclick="limpiarTodo()">Limpiar Selección</button>
         </div>
     </div>
@@ -300,11 +374,9 @@
                 alert('Ingresa tu nombre primero'); 
                 return; 
             }
-
             const juegos = [];
             let combinaciones = 1;
             let hayError = false;
-
             for (let i = 1; i <= 10; i++) {
                 const checked = document.querySelectorAll(`input[name="juego${i}"]:checked`);
                 if (checked.length === 0) { 
@@ -316,34 +388,27 @@
                 juegos.push(opciones);
                 combinaciones *= checked.length;
             }
-
             if (hayError) return;
-
             const costoTotal = combinaciones * 8;
             const mensaje = `Quiniela de *${nombre}*\nJuegos: ${juegos.join(' - ')}\nTotal combinaciones: ${combinaciones}\n*Costo: $${costoTotal}*`;
-
             navigator.clipboard.writeText(mensaje).catch(() => {});
-
             const facebookUsername = "quinielastony";
             const urlMessenger = `https://m.me/${facebookUsername}`;
             window.open(urlMessenger, '_blank');
-
             setTimeout(() => {
                 alert(`¡Abierto en Messenger!\nEl mensaje está copiado en tu portapapeles.\nPégalo en la conversación y envía. ¡Gracias!`);
             }, 500);
         }
 
-        function enviarPorWhatsApp() {
+        function enviarPorTelegram() {
             const nombre = document.getElementById('nombre').value.trim();
             if (!nombre) { 
                 alert('Ingresa tu nombre primero'); 
                 return; 
             }
-
             const juegos = [];
             let combinaciones = 1;
             let hayError = false;
-
             for (let i = 1; i <= 10; i++) {
                 const checked = document.querySelectorAll(`input[name="juego${i}"]:checked`);
                 if (checked.length === 0) { 
@@ -355,24 +420,29 @@
                 juegos.push(opciones);
                 combinaciones *= checked.length;
             }
-
             if (hayError) return;
-
             const costoTotal = combinaciones * 8;
-            const mensaje = `Quiniela de *${nombre}*%0AJuegos: ${juegos.join(' - ')}%0ATotal combinaciones: ${combinaciones}%0A*Costo: $${costoTotal}*%0A%0APago realizado a: 5204 1657 5532 0292`;
-
-            const urlWhatsApp = `https://wa.me/?text=${mensaje}`;
-            window.open(urlWhatsApp, '_blank');
+            const mensaje = `Quiniela de *${nombre}*\nJuegos: ${juegos.join(' - ')}\nTotal combinaciones: ${combinaciones}\n*Costo: $${costoTotal}*\n\nPago realizado a: 5204 1657 5532 0292`;
+            
+            // Copia al portapapeles
+            navigator.clipboard.writeText(mensaje).catch(() => {});
+            
+            // Abre el chat de Telegram (cambia el usuario si es necesario)
+            const telegramUser = "quinielastony"; // ← Cambia este usuario de Telegram
+            const urlTelegram = `https://t.me/${telegramUser}`;
+            window.open(urlTelegram, '_blank');
+            
+            setTimeout(() => {
+                alert(`¡Abierto en Telegram!\nEl mensaje está copiado en tu portapapeles.\nPégalo en el chat y envía.\n\nTambién puedes unirte al grupo: https://t.me/quinielastony`);
+            }, 500);
         }
 
         function limpiarTodo() {
             if (!confirm("¿Seguro que quieres borrar toda la selección y el nombre?")) return;
-
             document.getElementById('nombre').value = '';
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
                 cb.checked = false;
             });
-
             document.getElementById('costo').textContent = 'Costo total: $0';
             document.getElementById('mensajePreview').style.display = 'none';
         }
